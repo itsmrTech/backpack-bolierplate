@@ -87,7 +87,7 @@ export let verify=async(token)=>{
         var {basedCollection,userid,docid} =authenticationInfo;
         //FINDING USER OBJECT
         var user=await User.findById(userid);
-        var result={User:user};
+        var result={user};
 
         if(basedCollection!='User'){
         //FINDING BASEDCOLLECTION DOCUMENT
