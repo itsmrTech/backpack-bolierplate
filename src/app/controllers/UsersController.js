@@ -15,6 +15,8 @@ export let register = async(req, res, next) => {
         username,
         password
     } = req.body;
+    //CHECK IF USER ALREADY EXISTS
+    if(await User.findOne({email})) return res.validSend(409,{error:"email already exists."});
     //CREATING NEW USER OBJECT
     var newUser = new User({
         username,

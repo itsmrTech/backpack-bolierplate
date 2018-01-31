@@ -49,7 +49,7 @@ app.use(function (req, res, next) {
 app.use((err,req,res,next)=>{
   if(!err) return res.validSend(201,{});
   if(!err.status)err.status=500;
-  return res.validSend(err.status,{error:err.message})
+  return res.status(err.status).json({error:err.message})
 })
 
 const port = process.env.API_PORT || 3000;
