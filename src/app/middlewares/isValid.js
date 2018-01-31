@@ -28,15 +28,11 @@ let findKeys = (object, keys) => {
       notFoundKeys
     };
   };
-  var ind = 0;
-  console.log(_.omit([1, 3, 4], ["value"]));
   let deepOmit = (object, keys) => {
     try {
       let mapper = o => {
-        console.plain("O >> ", o, Object.keys(o).length);
         if (Object.keys(o).length > 0) var level = deepOmit(o, keys);
         else var level = o;
-        ind++;
         return level;
       };
       keys.map(okey => {
@@ -48,7 +44,6 @@ let findKeys = (object, keys) => {
       if (object.length) return object.map(mapper);
       else {
         Object.keys(object).map(key => {
-          console.plain("IN", key, object[key]);
           object[key] = mapper(object[key]);
         });
         return object;
