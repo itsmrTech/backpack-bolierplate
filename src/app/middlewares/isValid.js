@@ -16,7 +16,7 @@ let findKeys = (object, keys) => {
     notFoundKeys.push(key);
     _.mapKeys(object, (objectValue, objectKey) => {
       if (key == objectKey) {
-        if (object[key] && object[key] != null && object[key] != "") {
+        if (object[key] && object[key] != null && object[key] != "" ||object[key]==false) {
           foundKeys.push(key);
           notFoundKeys.pop();
         }

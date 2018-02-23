@@ -81,5 +81,5 @@ export let login = async(req, res, next) => {
 /*          POST /api/users/me            */
 export let me = async(req, res) => {
     //OK RESPONSE
-    res.validSend(200, req.User);
+    res.validSend(200, req.user);
 }
